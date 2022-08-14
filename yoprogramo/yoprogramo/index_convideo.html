@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="INSPIRO" />
+<meta name="description" content="Themeforest Template Polo">
+<!-- Document title -->
+<title>Argentina Programa | Daniel Aiello</title>
+<!-- Stylesheets & Fonts -->
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800" rel="stylesheet" type="text/css" />
+<link href="css/plugins.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header -->
+<header id="header" class="header-transparent header-fullwidth dark">
+  <div id="header-wrap">
+    <div class="container"> 
+      <!--Logo-->
+      <div id="logo"> <a href="index.html" class="logo" data-dark-logo="images/logo-dark.png"> <img src="images/logo.png" alt="Polo Logo"> </a> </div>
+      <!--End: Logo--> 
+      
+      <!--Header Extras-->
+      <div class="header-extras">
+        <ul>
+          <li>
+            <div class="topbar-dropdown"> <a href="#modalLogin" data-lightbox="inline" class="title"><i class="fa fa-user-circle"></i></a> </div>
+          </li>
+        </ul>
+      </div>
+      <div class="header-extras">
+        <ul>
+          <li> 
+            <!--top search--> 
+            <a  href="https://www.instagram.com/" target="_blank"> <i class="fa fa-instagram"></i> </a> 
+            <!--end: top search--> 
+          </li>
+          <li> 
+            <!--top search--> 
+            <a  href="https://www.facebook.com/" target="_blank"> <i class="fa fa-facebook"></i> </a> 
+            <!--end: top search--> 
+          </li>
+        </ul>
+      </div>
+      <!--end: Header Extras--> 
+    </div>
+  </div>
+</header>
+<!-- end: Header --> 
+
+<!-- BANNER -->
+<section id="page-title" data-vide-bg="video/explore/explore" data-vide-options="position: 0% 50%">
+  <div class="container">
+    <hr class="space">
+  </div>
+</section>
+<!-- end: BANNER --> 
+
+<!-- BLOQUE FOTO Y DESCRIPCION -->
+<section style="margin-top: -180px; background-color: transparent">
+  <div class="container">
+    <div class="row  m-b-0">
+      <div class="col-md-3 text-center"> <img src="images/perfil.jpg" class="img-responsive img-circle m-b-35" alt="" >
+        <h3 class="m-b-0">Daniel Aiello</h3>
+        <h3><small>Developer</small></h3>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12 m-t-100">
+            <h3>Titulo del KAPIOOOOOO</h3>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla luctus. Fusce id mi diam, non ornare orci. Pellentesque ipsum erat, <br>
+            <br>
+            facilisis ut venenatis eu, sodales vel dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. Suspendisse consectetur fringilla luctus. Fusce id mi diam, non ornare orci. Pellentesque ipsum erat, facilisis ut venenatis eu, sodales vel dolor. </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end: BLOQUE FOTO Y DESCRIPCION --> 
+
+<!-- BASE DE DATOS PARA FOTO
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+<?php
+$sql = "select * from alumnos_td
+        WHERE id LIKE '%".$_GET['id']."%'
+        AND nombre LIKE '%". $_GET['nombre']. "%'
+        AND apellido LIKE '%". $_GET['apellido']. "%'
+        AND dni LIKE '%". $_GET['dni']. "%'
+        AND tel LIKE '%". $_GET['tel']. "%'
+        AND curso LIKE '%". $_GET['curso']. "%'";
+$res = mysqli_query($conn, $sql);
+$cant_reg_pag = 10000;
+$total_reg = mysqli_num_rows($res);
+$total_pag = ceil($total_reg / $cant_reg_pag);
+
+if (!$_GET['pag']) {
+    $_GET['pag'] = 1;
+}
+$limit = (($_GET['pag'] - 1) * $cant_reg_pag);
+
+$sql = "select * from alumnos_td
+        WHERE id LIKE '%".$_GET['id']."%'
+        AND nombre LIKE '%". $_GET['nombre']. "%'
+        AND apellido LIKE '%". $_GET['apellido']. "%'
+        AND dni LIKE '%". $_GET['dni']. "%'
+        AND tel LIKE '%". $_GET['tel']. "%'
+        AND curso LIKE '%". $_GET['curso']. "%'
+		ORDER BY  `id` ASC
+       LIMIT " . $limit . "," . $cant_reg_pag;
+$res = mysqli_query($conn, $sql);?>
+
+<?php
+while ($fila = mysqli_fetch_assoc($res)) {
+   	echo "<tr "; 
+   	if ($num_fila%2==0) 
+      	echo "bgcolor=#f5f5f5"; //si el resto de la divisi贸n es 0 pongo un color 
+   	else 
+      	echo "bgcolor=#fff"; //si el resto de la divisi贸n NO es 0 pongo otro color 
+   	echo ">"; 
+?>
+            	
+            	<img src="/boletines/images/alumnos/<?php echo $fila['imagen'] ?>" width="35px">
+            <?php
+							$num_fila++; 
+							 } ?> 
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+          END BASE DE DATOS PARA FOTO--> 
+<!-- Content 
+  <section id="page-content">
+    <div class="container">
+      <div class="grid-system-demo-live">
+        <div class="row">
+          <div class="col-md-12 p-t-80 p-b-20">
+            <form>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="upper" for="foto">FOTO</label>
+                    <input type="file" class="form-control" name="foto" placeholder="Buscar foto" id="foto">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group text-left">
+                    <button class="btn btn-default" type="submit"><i class="fa fa-paper-plane"></i>&nbsp;cargar</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end: Content --> 
+
+<!--Modal Login -->
+<div id="modalLogin" class="modal no-padding" data-delay="2000" style="max-width: 780px;">
+  <div class="col-sm-6 hidden-xs no-padding" style="background: transparent url(&quot;images/login-bg.jpg&quot;) no-repeat scroll center top / cover; height:470px;"></div>
+  <div class="col-sm-6">
+    <div class="p-40 p-t-60 p-xs-20">
+      <h3>Sing up or Login</h3>
+      <form class="form-grey-fields">
+        <div class="form-group">
+          <label class="sr-only">Username or Email</label>
+          <input placeholder="Username or Email" class="form-control" type="text">
+        </div>
+        <div class="form-group m-b-5">
+          <label class="sr-only">Password</label>
+          <input placeholder="Password" class="form-control" type="password">
+        </div>
+        <div class="form-group form-inline text-left m-b-10 "> <a class="right" href="#">
+          <p><small>Lost your Password?</small></p>
+          </a>
+          <div class="checkbox checkbox-creative">
+            <label>
+              <input type="checkbox">
+              <span class="checkbox-item"> <span class="check"></span> </span> <small> Recordarme</small> </label>
+          </div>
+        </div>
+        <div class="text-left form-group">
+          <button class="btn btn-default" type="button">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--End: Modal Login --> 
+
+<!-- EXPERIENCIA -->
+<section id="page-content">
+  <div class="container">
+    <div class="hr-title hr-long center m-b-25"><abbr>Experiencia</abbr> </div>
+    <div class="grid-system-demo-live">
+      <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="400">
+      <div class="col-md-1"> <img src="images/clients/avon.png" alt="" width="100%"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h4 class="m-b-0">Programador super kapioooo</h4>
+        <span class="lead">Nombre de la empresa</span><br>
+        <strong>ENE 1998 - SEP 2001</strong>
+        <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+      </div>
+    </div>
+    <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="600">
+    <div class="col-md-1"> <img src="images/clients/optimal.png" alt="" width="100%"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4 class="m-b-0">Programador super kapioooo</h4>
+      <span class="lead">Nombre de la empresa</span><br>
+      <strong>ENE 1998 - SEP 2001</strong>
+      <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+    </div>
+  </div>
+  <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="800">
+  <div class="col-md-1"> <img src="images/clients/notfish.jpg" alt="" width="100%"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h4 class="m-b-0">Programador super kapioooo</h4>
+    <span class="lead">Nombre de la empresa</span><br>
+    <strong>ENE 1998 - SEP 2001</strong>
+    <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+<!-- end: EXPERIENCIA --> 
+
+<!-- EDUCACION -->
+<section id="page-content">
+  <div class="container">
+    <div class="hr-title hr-long center"><abbr>Educación</abbr> </div>
+    <div class="grid-system-demo-live">
+      <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="400">
+      <div class="col-md-1"> <img src="images/clients/cuba.jpg" alt="" width="100%"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <h4 class="m-b-0">Tecnico Electrónico</h4>
+        <span class="lead">El Cuba</span><br>
+        <strong>ENE 1998 - SEP 2001</strong>
+        <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+      </div>
+    </div>
+    <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="800">
+    <div class="col-md-1"> <img src="images/clients/esba.png" alt="" width="100%"></div>
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+      <h4 class="m-b-0">Programador super kapioooo</h4>
+      <span class="lead">ESBA</span><br>
+      <strong>ENE 1998 - SEP 2001</strong>
+      <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+    </div>
+  </div>
+  <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="600">
+  <div class="col-md-1"> <img src="images/clients/it.png" alt="" width="100%"></div>
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <h4 class="m-b-0">Super Kapioooo programador</h4>
+    <span class="lead">Educación IT</span><br>
+    <strong>ENE 1998 - SEP 2001</strong>
+    <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+<!-- end: EDUCACION --> 
+
+<!-- PORCENTAJES -->
+<section>
+  <div class="container"> 
+    
+    <!--Extra width pie chart-->
+    <div class="hr-title hr-long center"><abbr>Hard and Soft Skills</abbr> </div>
+    <div class="row">
+      <div class="col-md-3 text-center"> <span class="pie-chart" data-percent="75"  data-color="#CC0000" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">75</span>
+        <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </span>
+        <h4>SKILLS</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Condimentum porttitor cursumus.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="65" data-color="#EA4C89" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">65</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>CONTENT</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum cursumus.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="35" data-color="#FF675B" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">35</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>WEB SITES</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="44" data-color="#FF9900" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">44</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>EMPLOYEES</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.</p>
+      </div>
+    </div>
+    <!--END: Extra width pie chart-->
+    <hr class="space">
+    <div class="row">
+      <div class="col-md-3 text-center"> <span class="pie-chart" data-percent="75"  data-color="#8959B1" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">75</span>
+        <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </span>
+        <h4>SKILLS</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Condimentum porttitor cursumus.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="65" data-color="#3498db" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">65</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>CONTENT</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum cursumus.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="35" data-color="#01b6ad" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">35</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>WEB SITES</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor.</p>
+      </div>
+      <div class="col-md-3 text-center">
+        <div class="pie-chart" data-percent="44" data-color="#aec211" data-width="20"> <span class="percent" style="width: 160px; height: 160px; line-height: 160px;">44</span>
+          <canvas height="320" width="320" style="height: 160px; width: 160px;"></canvas>
+        </div>
+        <h4>EMPLOYEES</h4>
+        <p>Lorem ipsum dolor sit amet, consecte adipiscing elit. Suspendisse condimentum porttitor cursumus.</p>
+      </div>
+    </div>
+    <!--END: Extra width pie chart-->
+    <hr class="space">
+  </div>
+</section>
+<!-- end: PORCENTAJES --> 
+
+<!-- PROYECTOS -->
+<section id="page-content">
+  <div class="container">
+    <div class="hr-title hr-long center"><abbr>PROYECTOS</abbr> </div>
+    <div class="grid-system-demo-live">
+      <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="400">
+      <div class="col-md-12">
+        <h2 class="m-b-0">Proyecto 1</h2>
+        <span class="lead">ENE 1998 - SEP 2001</span><br>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary  btn-rounded">VER PROYECTO</button>
+    	</div>
+		<div class="seperator seperator-small"></div>
+      <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="400">
+      <div class="col-md-12">
+        <h2 class="m-b-0">Proyecto 2</h2>
+        <span class="lead">ENE 1998 - SEP 2001</span><br>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary  btn-rounded">VER PROYECTO</button>
+    	</div>
+		<div class="seperator seperator-small"></div>
+      <div class="row" class="animated fadeInUp visible" data-animation="fadeInUp" data-animation-delay="400">
+      <div class="col-md-12">
+        <h2 class="m-b-0">Proyecto 3</h2>
+        <span class="lead">ENE 1998 - SEP 2001</span><br>
+        <div class="row">
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+          <div class="col-md-6">
+            <p>Vitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stieVitae adipiscing turpis. Aenean ligula nibh, molestie id viverra a, dapibus at dolor. In iaculis viverra neque, ac ele molestie id viverra aifend ante lobortis id. In viverra ipsum stie.</p>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary  btn-rounded">VER PROYECTO</button>
+    	</div>
+  	</div>
+  </div>
+</section>
+<!-- end: EDUCACION --> 
+
+<!-- Footer -->
+<footer id="footer" class="footer-light">
+  <div class="copyright-content">
+    <div class="container">
+      <div class="copyright-text text-center">Argentina Programa - Aiello Daniel</div>
+    </div>
+  </div>
+</footer>
+<!-- end: Footer -->
+</div>
+<!-- end: Wrapper --> 
+
+<!-- Go to top button --> 
+<a id="goToTop"><i class="fa fa-angle-up top-icon"></i><i class="fa fa-angle-up"></i></a><!--Plugins--> 
+<script src="js/jquery.js"></script> 
+<script src="js/plugins.js"></script> 
+
+<!--Template functions--> 
+<script src="js/functions.js"></script>
+</body>
+</html>
